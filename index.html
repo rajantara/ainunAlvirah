@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu Sayanggku</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in">
+
+<div class="flower-container"></div>
+
+<div class="mobile-wrapper">
+  <div class="mobile-frame">
+      <h1>Untuk Kamu, Nur Ainun Alvirahh 💙</h1>
+      <button id="enterBtn">Klik Ini Sayangnya Akuuu</button>
+  </div>
+</div>
+
+<script>
+document.getElementById("enterBtn").addEventListener("click", function(){
+  document.body.classList.add("fade-out");
+  setTimeout(()=>{
+    window.location.href="page2.html";
+  },800);
+});
+
+/* ANIMASI BUNGA */
+function createFlower(){
+  const flower = document.createElement("div");
+  flower.classList.add("flower");
+  flower.innerHTML = "🌸";
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.fontSize = (Math.random() * 15 + 15) + "px";
+  flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
+  document.querySelector(".flower-container").appendChild(flower);
+
+  setTimeout(()=>{
+    flower.remove();
+  },10000);
+}
+
+setInterval(createFlower, 500);
+</script>
+
+</body>
+</html>
