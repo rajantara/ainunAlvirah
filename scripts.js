@@ -1,7 +1,7 @@
 /* =========================
    TYPING EFFECT
 ========================= */
-const text = "Terima kasih sudah hadir dalam hidupku. Kamu adalah alasan aku tersenyum setiap hari. Semoga kita selalu bersama dan saling menjaga. Aku sayang kamu 💙";
+const text = "Terima kasih sudah hadir dalam hidupku. Kamu adalah alasan aku tersenyum setiap hari. Semoga kita selalu bersama dan saling menjaga. love you sayanggg💙";
 const typingElement = document.getElementById("typingText");
 
 let i = 0;
@@ -163,4 +163,5 @@ function createFlower(){
   },10000);
 }
 setInterval(createFlower, 700);
+
 
