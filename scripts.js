@@ -59,7 +59,7 @@ musicBtn.addEventListener("click", function(){
 /* =========================
    COUNTDOWN HARI JADIAN
 ========================= */
-const startDate = new Date("2024-01-01");  // UBAH TANGGAL INI
+const startDate = new Date("2025-09-04");  // UBAH TANGGAL INI
 const today = new Date();
 const diffTime = Math.abs(today - startDate);
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -166,3 +166,4 @@ function createFlower(){
   },10000);
 }
 setInterval(createFlower, 700);
+
