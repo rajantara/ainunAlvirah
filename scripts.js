@@ -1,7 +1,10 @@
 /* =========================
    TYPING EFFECT
 ========================= */
-const text = "Terima kasih sudah hadir dalam hidupku. Kamu adalah alasan aku tersenyum setiap hari. Semoga kita selalu bersama dan saling menjaga. love you sayanggg💙";
+const text = `Terima kasih sudah hadir di hidupku.
+Kamu adalah alasan aku tersenyum setiap hari.
+Semoga kita selalu saling jaga, saling dukung, dan tumbuh bersama.
+Aku sayang kamu, selalu 💙`;
 const typingElement = document.getElementById("typingText");
 
 let i = 0;
@@ -56,7 +59,7 @@ musicBtn.addEventListener("click", function(){
 /* =========================
    COUNTDOWN HARI JADIAN
 ========================= */
-const startDate = new Date("2025-09-04");  // UBAH TANGGAL INI
+const startDate = new Date("2024-01-01");  // UBAH TANGGAL INI
 const today = new Date();
 const diffTime = Math.abs(today - startDate);
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -163,5 +166,3 @@ function createFlower(){
   },10000);
 }
 setInterval(createFlower, 700);
-
-
