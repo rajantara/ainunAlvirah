@@ -3,44 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Kamu Sayanggku</title>
-<link rel="stylesheet" href="style.css">
+<title>Cerita Kita</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg,#ffe6f0,#e0f7ff);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  transition:0.8s ease;
+}
+
+.fade-out{
+  opacity:0;
+}
+
+.flower-container{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.flower{
+  position:absolute;
+  top:-10px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+.mobile-frame{
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(18px);
+  border-radius:28px;
+  padding:35px 20px;
+  width:92%;
+  max-width:360px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+  100%{ transform:translateY(0); }
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  margin-bottom:25px;
+  color:#333;
+}
+
+button{
+  background: linear-gradient(45deg,#ff4d88,#6ec6ff);
+  border:none;
+  padding:12px 28px;
+  border-radius:30px;
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:active{
+  transform:scale(0.95);
+}
+
+.music-control{
+  margin-top:18px;
+  font-size:12px;
+  color:#333;
+  cursor:pointer;
+}
+</style>
 </head>
-<body class="fade-in">
+
+<body>
 
 <div class="flower-container"></div>
 
-<div class="mobile-wrapper">
-  <div class="mobile-frame">
-      <h1>Untuk Kamu, Nur Ainun Alvirahh 💙</h1>
-      <button id="enterBtn">Klik Ini Sayangnya Akuuu</button>
-  </div>
+<div class="mobile-frame">
+  <h1>Cerita Kita dan Album Kita 💙</h1>
+  <button id="enterBtn">Klik Ini Sayangnya Akuuu</button>
+  <div class="music-control" id="toggleMusic">Matikan Musik</div>
 </div>
 
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+const music = document.getElementById("bgMusic");
+const clickSound = document.getElementById("clickSound");
+
+music.volume = 0.3;
+
+document.addEventListener("click", function(){
+  music.play().catch(()=>{});
+}, { once:true });
+
+document.getElementById("toggleMusic").addEventListener("click", function(){
+  clickSound.play();
+  if(music.paused){
+    music.play();
+    this.textContent = "Matikan Musik";
+  } else {
+    music.pause();
+    this.textContent = "Nyalakan Musik";
+  }
+});
+
 document.getElementById("enterBtn").addEventListener("click", function(){
+  clickSound.play();
   document.body.classList.add("fade-out");
-  setTimeout(()=>{
+  setTimeout(function(){
     window.location.href="page2.html";
   },800);
 });
 
-/* ANIMASI BUNGA */
 function createFlower(){
   const flower = document.createElement("div");
   flower.classList.add("flower");
   flower.innerHTML = "🌸";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.fontSize = (Math.random() * 15 + 15) + "px";
-  flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
+  flower.style.left = Math.random()*100+"vw";
+  flower.style.fontSize = (Math.random()*12+16)+"px";
+  flower.style.animationDuration = (Math.random()*5+6)+"s";
   document.querySelector(".flower-container").appendChild(flower);
 
-  setTimeout(()=>{
+  setTimeout(function(){
     flower.remove();
   },10000);
 }
 
-setInterval(createFlower, 500);
+setInterval(createFlower,1200);
 </script>
 
 </body>
