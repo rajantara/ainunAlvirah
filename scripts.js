@@ -2,9 +2,9 @@
    1. TYPING EFFECT
 ===================================== */
 (function () {
-  const text = `Terima kasih sudah hadir di hidupku.
-Kamu adalah alasan aku tersenyum setiap hari.
-Semoga kita selalu saling jaga, saling dukung.
+  const text = `Happy birthday to my favorite person! aku tau words can't fully capture how much you mean to me, but at least, 
+  setidaknya aku mau kamu tau that loving you is the easiest thing I've ever done. 
+  Thank you for being you - beautifully imperfect and perfectly mine. Here's to forever with you, sayanggkuuuu.
 Aku sayangg kamu cintakuuu....`;
 
   const element = document.getElementById("typingText");
@@ -227,3 +227,4 @@ if (typeof confetti === "function") {
     images[current].classList.add("active");
   }, 6000);
 })();
+
